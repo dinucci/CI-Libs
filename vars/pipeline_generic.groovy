@@ -1,3 +1,5 @@
+def call {
+
 pipeline
 {
     agent any
@@ -16,3 +18,4 @@ pipeline
     }
 }
 
+}
