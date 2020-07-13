@@ -1,30 +1,18 @@
-def call()
+pipeline
 {
-    pipeline
+    agent any
+    stages
     {
-        agent any
-        environment
+        stage('Novatos')
         {
-            registry = "eltano84/docker-test"
-            registryCredential = 'dockerhub'
-            dockerImage = ''
-        }
-        stages
-        {
-            stage('Building and send image')
+            steps
             {
-                steps
-                {
-                    build_docker()
-                }
-            }
-            stage('Remove Unused docker image')
-            {
-                steps
-                {
-                    remove_old_image()
-                }
+            	sh '''
+                echo "compilmos nuestra primera imagen en un pipeline"
+                docker build -t "apache:01" . 
+                '''
             }
         }
     }
 }
+
